@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
+
+name: Build
+on:
+  push:
+  workflow_dispatch:
+    inputs:
+      upload_release_file:
+        type: boolean
+        default: false
+        description: Upload generated release file as an artifact.
+
+jobs:
+  build:
+    name: Test & Build
+
+    runs-on: [self-hosted, linux]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3.5.2
+
+      - name: Upload release artifact
+        if: "${{ github.event.inputs.upload_release_file == 'true' }}"
+        uses: actions/upload-artifact@v3.1.2
+        with:
+          name: release
+          path: release-*
