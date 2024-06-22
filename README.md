@@ -1,3 +1,3 @@
-# Test-subject of type 'release-files' for gh-release
+# 'release-files' test subject
 
-A test repository that is used by [gh-release](https://github.com/kattecon/gh-release)'s test workflow to test 'release-files' release workflow.
+A test repository. Nothing to see here.
